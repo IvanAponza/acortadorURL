@@ -1,2 +1,2 @@
 # app acortadoda de URL
-APP para acortar tus URL, desarrollada de acuerdo a los conocimientos adquiridos en el canal de Bluuweb [https://www.youtube.com/watch?v=xkHyM-K3Cd8&t=250s] por el Profe Ignacio Gutiérrez con unas pequeñas adaptpersonalizaciones aciones realizadas por mí.
+Desarrollada de acuerdo a los conocimientos adquiridos en el canal de Bluuweb [https://www.youtube.com/watch?v=xkHyM-K3Cd8&t=250s] por el Profe Ignacio Gutiérrez con unas pequeñas personalizaciones realizadas por mí.
