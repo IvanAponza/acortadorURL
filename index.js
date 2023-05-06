@@ -12,6 +12,7 @@ const PORT = process.env.PORT || 4000
 app.use(morgan('dev')) //muestra todas las peticiones hechas al server
 
 //Rutas | Routes
+//app.use("/", require('./routes/home'));
 
 //Iniciar el servidor | Start the server
 app.listen(PORT, () => {
