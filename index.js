@@ -9,7 +9,7 @@ const app = express();
 const PORT = process.env.PORT || 4000
 
 //Middlewares
-app.use(morgan('dev'))
+app.use(morgan('dev')) //muestra todas las peticiones hechas al server
 
 //Rutas | Routes
 
