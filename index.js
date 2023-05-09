@@ -1,6 +1,7 @@
 const express = require('express')
 const morgan = require('morgan')
 require('dotenv').config()
+require('./database/db.js')
 
 //Inicilizaciones
 const app = express();
@@ -12,7 +13,7 @@ const PORT = process.env.PORT || 4000
 app.use(morgan('dev')) //muestra todas las peticiones hechas al server
 
 //Rutas | Routes
-//app.use("/", require('./routes/home'));
+app.use("/", require('./routes/home'));
 
 //Iniciar el servidor | Start the server
 app.listen(PORT, () => {
