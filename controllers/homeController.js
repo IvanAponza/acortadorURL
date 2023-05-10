@@ -2,33 +2,74 @@ const { nanoid } = require('nanoid');
 const Url = require('../models/Url.js');
 
 //Mostrar URLs
-const mostrarUrls = async (req, res) =>{
+const mostrarUrls = async (req, res) => {
     try {
         const urls = await Url.find().lean()
-        res.render('home', {urls: urls})
+        res.render('home', { urls: urls })
     } catch (error) {
         console.log(error);
         res.send('Algo falló...');
     }
 }
 //Crear URLs
-const agregarUrl = async (req, res) =>{
-    
-    const {origin} = req.body
+const agregarUrl = async (req, res) => {
+
+    const { origin } = req.body
 
     try {
-        const url = new Url({origin, shortUrl: nanoid(6)});
+        const url = new Url({ origin, shortUrl: nanoid(6) });
+        await url.save();
+        return res.redirect('/');
     } catch (error) {
         console.log(error);
-        res.send('Algo falló...');
+        return res.redirect('/');
     }
 }
 
+//Formulario para Editar URLs
+const frmEditarUrl = async (req, res) => {
+    const { id } = req.params;
+
+    try {
+        const url = await Url.findById(id).lean();
+        return res.render('home', { url });
+    } catch (error) {
+        console.log(error);
+        return res.send('Falló algo...');
+    }
+}
 //Editar URLs
+const editarUrl = async (req, res) => {
+    const { id } = req.params;
+    const { origin } = req.body;
+
+    try {
+        const url = await Url.findById(id);
+        await url.updateOne({ origin });
+        return res.redirect('/');
+    } catch (error) {
+        console.log(error);
+        return res.send('Falló algo...');
+    }
+}
 
 //Eliminar URLs
+const eliminarUrl = async (req, res) => {
+    const { id } = req.params;
+
+    try {
+        await Url.findByIdAndDelete(id)
+        return res.redirect('/');
+    } catch (error) {
+        console.log(error);
+        return res.send('Falló algo...');
+    }
+}
 
 module.exports = {
     mostrarUrls,
-    agregarUrl
+    agregarUrl,
+    eliminarUrl,
+    frmEditarUrl,
+    editarUrl
 }

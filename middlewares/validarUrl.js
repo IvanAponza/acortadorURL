@@ -5,8 +5,8 @@ const validarUrl = (req, res, next)=>{
         const {origin} = req.body;
         const urlFrontend = new URL(origin);
         if(urlFrontend.origin !== 'null'){
-            if(urlFrontend.protocol === 'http' || urlFrontend.protocol === 'https'){
-                next()
+            if(urlFrontend.protocol === 'http:' || urlFrontend.protocol === 'https:'){
+                return next()
             }
             throw new Error('Debe tener https://')
         }

@@ -25,6 +25,7 @@ app.use(express.urlencoded({ extended: true }));
 
 //Rutas | Routes
 app.use("/", require('./routes/home'));
+app.use('/auth', require('./routes/auth'));
 
 //Iniciar el servidor | Start the server
 app.listen(PORT, () => {
