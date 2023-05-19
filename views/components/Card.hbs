@@ -4,6 +4,6 @@
         <p>{{item.shortUrl}}</p>
         <a href="/eliminar/{{item._id}}" class="btn btn-danger">Eliminar</a>
         <a href="/editar/{{item._id}}" class="btn btn-warning">Editar</a>
-        <button class="btn btn-secondary">Copiar</button>        
+        <button data-short="{{item.shortUrl}}" href="#" class="btn btn-secondary">Copiar</button>        
     </div>
 </article>

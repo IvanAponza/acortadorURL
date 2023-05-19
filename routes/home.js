@@ -1,7 +1,8 @@
 const express = require('express');
 const { mostrarUrls, agregarUrl, eliminarUrl, frmEditarUrl, editarUrl } = require('../controllers/homeController');
-const router = express.Router()
 const validarUrl = require('../middlewares/validarUrl.js');
+
+const router = express.Router()
 
 router.get('/', mostrarUrls);
 router.post('/', validarUrl, agregarUrl);
