@@ -28,7 +28,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use("/", require('./routes/home'));
 app.use('/auth', require('./routes/auth'));
 
-//Iniciar el servidor | Start the server
+//Escuchando puerto servidor | Listening port server
 app.listen(PORT, () => {
     console.log("Server on port http://localhost:" + PORT);
 })
