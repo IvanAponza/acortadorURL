@@ -69,7 +69,7 @@ const eliminarUrl = async (req, res) => {
 const redireccionarUrl = async (req, res) => {
   const { shortUrl } = req.params;
   try {
-    const dbUrl = await Url.findOne({ shortUrl });
+    const dbUrl = await Url.findOne({ shortUrl: shortUrl});
     return res.redirect(dbUrl.origin);
   } catch (error) {
     console.log(error);

@@ -1,7 +1,9 @@
 require("dotenv").config();
 const User = require("../models/User");
+const {validationResult} = require("express-validator")
 const { nanoid } = require("nanoid");
 const nodemailer = require("nodemailer");
+
 
 //Renderiza vista registro usuarios
 const registroForm = async (req, res) => {
@@ -14,6 +16,7 @@ const loginForm = async (req, res) => {
 
 //Guardar usuarios DB
 const guardarUser = async (req, res) => {
+
   const { userName, email, password } = req.body;
   try {
     let user = await User.findOne({ email });
@@ -39,7 +42,9 @@ const guardarUser = async (req, res) => {
       html: `<a href="http://localhost:4000/auth/confirmarCuenta/${user.tokenConfirm}">Verifica tu cuenta aquí</a>`, // html body
   });
 
-    return res.json(user);
+  return res.json('revisa tu correo y confirma tu cuenta');
+
+    //return res.json(user);
   } catch (error) {
     return res.json({ error: error.message });
   }
