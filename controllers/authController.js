@@ -1,6 +1,5 @@
 require("dotenv").config();
 const User = require("../models/User");
-const { validationResult } = require("express-validator");
 const { nanoid } = require("nanoid");
 const nodemailer = require("nodemailer");
 
@@ -14,13 +13,7 @@ const loginForm = async (req, res) => {
 };
 
 //Guardar usuarios DB
-const guardarUser = async (req, res) => {
-  //Registra los errores
-  const errors = validationResult(req);
-  if (!errors.isEmpty()) {
-    req.flash("mensajes", errors.array());
-    return res.redirect("/auth/registro");
-  }
+const guardarUser = async (req, res) => {  
 
   const { userName, email, password } = req.body;
 
