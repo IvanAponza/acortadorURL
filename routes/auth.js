@@ -7,7 +7,7 @@ const {
   loginUser,
 } = require("../controllers/authController");
 const {
-  bodyUserValidations, bodyRegistroValidation, bodyLoginValidation,
+  bodyRegistroValidation, bodyLoginValidation,
 } = require("../middlewares/validationResultExpress");
 const router = Router();
 

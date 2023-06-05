@@ -77,11 +77,6 @@ const confirmarCuenta = async (req, res) => {
 
 //login usuarios
 const loginUser = async (req, res) => {
-  const errors = validationResult(req);
-  if (!errors.isEmpty()) {
-    req.flash("mensajes", errors.array());
-    return res.redirect("/auth/login");
-  }
 
   const { email, password } = req.body;
   try {
