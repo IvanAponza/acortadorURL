@@ -4,18 +4,24 @@
       <div class="card-body">
         <h2 class="card-title text-center mb-3">Registrarse</h2>
         <form action="/auth/registro" method="post">
-            <label for="userName">Nombre:</label>
-            <input type="text" name="userName" class="form-control mb-3" placeholder="Ingrese su nombre" value="ivap.dev">
-
-            <label for="email">Email:</label>
-            <input type="email" name="email" value="ivapdev@gmail.com" class="form-control mb-3" placeholder="Ingresa tu E-mail">
-
-            <label for="password">Contraseña:</label>
-            <input type="password" name="password" value="1234560" class="form-control mb-3" placeholder="Contraseña">
-
-            <label for="repassword">Repite Contraseña:</label>
-            <input type="password" name="repassword" value="1234560" class="form-control mb-3" placeholder="Repite contraseña">
-
+            <input type="hidden" name="_csrf" value="{{csrfToken}}">
+            <div>
+              <label for="userName">Nombre:</label>
+              <input type="text" name="userName" class="form-control mb-3" placeholder="Ingrese su nombre" value="ivap.dev">
+            </div>
+            <div>
+              <label for="email">Email:</label>
+              <input type="email" name="email" value="ivapdev@gmail.com" class="form-control mb-3" placeholder="Ingresa tu E-mail">
+            </div>
+            <div>
+              <label for="password">Contraseña:</label>
+              <input type="password" name="password" value="1234560" class="form-control mb-3" placeholder="Contraseña">
+            </div>
+            <div>
+              <label for="repassword">Repite Contraseña:</label>
+              <input type="password" name="repassword" value="1234560" class="form-control mb-3" placeholder="Repite contraseña">
+            </div>
+            
             <button type="submit" class="btn btn-secondary w-100">Registrar Usuario</button>
         </form>
       </div>

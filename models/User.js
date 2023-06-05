@@ -32,9 +32,9 @@ userSchema.pre("save", async function (next) {
 });
 
 //Validate password globally
-userSchema.comparePassword = async function (candidatePassword) {
+userSchema.methods.comparePassword = async function (passwordVerify) {
   //compara y retorna la password
-  return await bcrypt.compare(candidatePassword, this.password);
+  return await bcrypt.compare(passwordVerify, this.password);
 };
 
 module.exports = mongoose.model("User", userSchema);
