@@ -46,11 +46,13 @@ const guardarUser = async (req, res) => {
       { msg: "Revisa tu correo electrónico y confirma la cienta",}
     ]);
 
+    return res.status(304).redirect('/auth/login');
+
     //return res.json(user);
   } catch (error) {
     //return res.json({ error: error.message });
     req.flash("mensajes", [{ msg: error.message }]);
-    return res.redirect("/auth/registro");
+    return res.status(304).redirect("/auth/login");
   }
 };
 
@@ -71,7 +73,7 @@ const confirmarCuenta = async (req, res) => {
   } catch (error) {
     // return res.json({ error: error.message });
     req.flash("mensajes", [{ msg: error.message }]);
-    return res.redirect("/auth/login");
+    return res.status(304).redirect("/auth/login");
   }
 };
 
@@ -89,15 +91,21 @@ const loginUser = async (req, res) => {
     //crea session usuario a través de passport
     req.login(user, function (err) {
       if (err) throw new Error("Error al crear la sesión");
-      return res.redirect("/");
+      return res.status(304).redirect("/");
     });
 
   } catch (error) {
     req.flash("mensajes", [{ msg: error.message }]);
-    return res.redirect("/auth/login");
+    return res.status(304).redirect("/auth/login");
   }
 };
 //cerrar session usuarios
+const cerrarSession = (req, res, next)=>{
+  req.logout((err)=>{
+    if(err) return next(err);
+  })
+  return res.status(304).redirect("/auth/login");
+}
 
 module.exports = {
   registroForm,
@@ -105,4 +113,5 @@ module.exports = {
   guardarUser,
   confirmarCuenta,
   loginUser,
+  cerrarSession,
 };

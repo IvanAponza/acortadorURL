@@ -5,6 +5,7 @@ const {
   guardarUser,
   confirmarCuenta,
   loginUser,
+  cerrarSession,
 } = require("../controllers/authController");
 const {
   bodyRegistroValidation, bodyLoginValidation,
@@ -16,5 +17,6 @@ router.get("/login", loginForm);
 router.post("/registro", [bodyRegistroValidation], guardarUser);
 router.get("/confirmarCuenta/:token", confirmarCuenta);
 router.post("/login", [bodyLoginValidation], loginUser);
+router.get("/logout", cerrarSession)
 
 module.exports = router;

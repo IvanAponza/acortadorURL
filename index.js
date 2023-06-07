@@ -74,6 +74,6 @@ app.use("/auth", require("./routes/auth"));
 const PORT = process.env.PORT || 4000;
 //Escuchando puerto servidor | Listening port server
 app.listen(PORT, () => {
-  console.log("Server on port http://localhost:" + PORT);
-  // console.log(`Server listening on port [http://localhost:${PORT}]`);
+  // console.log("Server on port http://localhost:" + PORT);
+  console.log(`Server running on port [http://localhost:${PORT}]`);
 });

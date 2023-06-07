@@ -5,7 +5,12 @@ const {Schema} = mongoose;
 //Schema de los datos del documento
 const urlSchema = new Schema({
     origin: {type: 'string', unique: true, required: true},
-    shortUrl: {type: 'string', unique: true, required: true}
+    shortUrl: {type: 'string', unique: true, required: true},
+    user:{
+        type: Schema.Types.ObjectId,
+        ref: 'User',
+        required: true
+    }
 })
 
 //modelo de coleccion de los documentos
