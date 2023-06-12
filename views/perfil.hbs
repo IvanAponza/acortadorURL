@@ -1,0 +1,56 @@
+<div class="row justify-content-center">
+  <div class="col-sm-6">
+    <div class="card">
+      <h2 class="card-title text-center mb-3">{{user.userName}}</h2>
+      <div class="card-body">
+        <form action="/perfil?_csrf={{csrfToken}}" enctype="multipart/form-data" method="post">
+          {{!-- Se pasa como query params --}}
+          {{!-- <input type="hidden" name="_csrf" value="{{csrfToken}}"> --}}
+
+          <div class="my-3 text-center">
+            {{#if imagen}}
+              <img src="/image/perfiles/{{imagen}}" alt="" class="rounded-circle" >
+              {{else}}
+              <img src="/image/perfiles/perfil.jpg" alt="" class="rounded-circle" >
+              
+            {{/if}}
+          </div>
+          <div class="row mb-2">
+            <div>
+              <label> Foto (opcional)</label>
+              <input type="file" name="myFile" id="formFileSm" class="form-control">
+            </div>
+          </div>
+          <div class="row mb-2">
+            <div>
+              <label>Nombre:</label>
+              <input type="text" name="userName" class="form-control" placeholder="Ingresa tu Nombre">
+            </div>
+          </div>
+          <div class="row mb-2">
+            <div>
+              <label>Email:</label>
+              <input type="email" name="email" class="form-control" placeholder="Ingresa tu correo electrónico">
+            </div>
+          </div>
+          <div class="row mb-2">
+            <div class="col-sm-6">
+              <label>Contraseña Actual</label>
+              <div class="input-group">
+                <input type="password" name="password" class="form-control" placeholder="Ingresa tu Nombre">
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <label> Nueva Contraseña</label>
+              <div class="input-group">
+                <input type="password" name="password" class="form-control" placeholder="Ingresa tu Nombre">
+              </div>
+            </div>
+          </div>
+
+          <button type="submit" class="btn btn-secondary w-100">Guardar</button>
+
+        </form>
+      </div>
+    </div>
+  </div>

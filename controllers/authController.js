@@ -99,6 +99,7 @@ const loginUser = async (req, res) => {
     return res.status(304).redirect("/auth/login");
   }
 };
+
 //cerrar session usuarios
 const cerrarSession = (req, res, next)=>{
   req.logout((err)=>{
@@ -106,6 +107,7 @@ const cerrarSession = (req, res, next)=>{
   })
   return res.status(304).redirect("/auth/login");
 }
+
 
 module.exports = {
   registroForm,

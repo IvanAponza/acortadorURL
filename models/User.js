@@ -14,6 +14,7 @@ const userSchema = new Schema({
   password: { type: String, required: true },
   tokenConfirm: { type: String, default: null },
   cuentaConfirm: { type: Boolean, default: false },
+  imagen: { type: String, default: false },
 });
 
 //Hash passwords globally
